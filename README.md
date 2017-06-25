@@ -12,7 +12,7 @@ Ever wanted to spawn an army of popori? Well now you can with this incredibly po
 * `!RELOAD` Sends S_SPAWN_ME to fix camera/other issues.
 
 ## IDs
-* Collection, NPC, Shuttle, Object and character model IDs can be found [Here](https://docs.google.com/spreadsheets/d/1Inba-tW70grzqisvpdFPpKFfgz5XTptFygjUNb1T1hw/edit?usp=sharing). Costume/etc ids can be found [Here](http://teradatabase.net/)
+* Collection, NPC, Shuttle, Object and character model IDs can be found [Here](https://docs.google.com/spreadsheets/d/1Inba-tW70grzqisvpdFPpKFfgz5XTptFygjUNb1T1hw/edit?usp=sharing). ActionScripts [Here](https://drive.google.com/file/d/0B9CbzlVpo0LuTjVWZ19Lel8wVjQ/view?usp=sharing). Costume/etc ids can be found [Here](http://teradatabase.net/)
 ## Future changes
 * Use electron for less cancerous spawning
 * Make variables settable rather than required, eg !set npc hair 264704
