@@ -1,4 +1,4 @@
-# Exploration
+# Spawner
 Ever wanted to spawn an army of popori? Well now you can with this incredibly poorly coded trainwreck!
 
 ## Commands
