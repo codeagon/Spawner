@@ -29,7 +29,7 @@ module.exports = function Memelord420(dispatch) {
 	  pcid = event.cid
 	  pserver = event.serverId
 	  pid = event.playerId
-//	  console.log(event)
+	  console.log(event)
   })
 	dispatch.hook('C_PLAYER_LOCATION', 1, event =>{
 		location = event
@@ -41,14 +41,10 @@ module.exports = function Memelord420(dispatch) {
 	dispatch.hook('S_LOAD_TOPO', 1, event =>{
 		zz = event.zone
 	});
-	dispatch.hook('S_SPAWN_USER', 4, event =>{
+	dispatch.hook('S_SPAWN_USER', 5, event =>{
 		console.log('User Found '+event.name, event.appface, event.apphair)
 		pc = event
 	})
-	dispatch.hook('S_SPAWN_SHUTTLE', 1, event => {
-		console.log(event)
-	})
-
 
 	slash.on('snpc', (args) => {
 		snpc(args)
@@ -95,6 +91,12 @@ module.exports = function Memelord420(dispatch) {
 	slash.on('scriptnpc', (args) => {
 	scriptnpc(args)
 	})
+	slash.on('sign', (args) => {
+	sign(args)
+	})
+	slash.on('sound', (args) => {
+	sound(args)
+	})
 	function reload(args){
 		dispatch.toClient('S_SPAWN_ME', 1, {
 			target: pcid,
@@ -113,6 +115,9 @@ module.exports = function Memelord420(dispatch) {
 	function scriptme(args){
 	scriptPlayer([parseFloat(args[1])])
 	}
+	function sound(args){
+	playSound([parseFloat(args[1])])
+	}
 	function scriptnpc(args){
 	scriptc([parseFloat(args[1])])
 	}
@@ -123,16 +128,17 @@ module.exports = function Memelord420(dispatch) {
 	collection([parseFloat(args[1])])
 	}
 	function su(args){
-	spawnUser([parseInt(args[1]),parseInt(args[2]),parseInt(args[3]),parseInt(args[4]),parseInt(args[5]),parseInt(args[6]),parseInt(args[7]),parseInt(args[8])])
+	spawnUser([parseInt(args[1]),parseInt(args[2]),parseInt(args[3]),parseInt(args[4]),parseInt(args[5]),parseInt(args[6]),parseInt(args[7]),parseInt(args[8]),parseInt(args[9]),parseInt(args[10])])
 	}
 	function snpc(args){
 	spawnNpc([parseFloat(args[1]),parseFloat(args[2]),parseFloat(args[3])])
 	}
+
 	function scriptOther(SCRIPTUSER){
 	dispatch.toClient('S_START_ACTION_SCRIPT', 1, {
-	cid: ucid-1,
-	unk1: SCRIPTUSER[0],
-	unk2: 0
+		cid: ucid-1,
+		unk1: SCRIPTUSER[0],
+		unk2: 0
 		})
 	}
 	function scriptPlayer(SCRIPTME){
@@ -140,6 +146,13 @@ module.exports = function Memelord420(dispatch) {
 	cid: pcid,
 	unk1: SCRIPTME[0],
 	unk2: 0
+		})
+	}
+	function playSound(SOUND){
+	dispatch.toClient('S_PLAY_EVENT_SOUND', 1, {
+	id: SOUND[0],
+	unk1: 1,
+	unk2: 1
 		})
 	}
 	function scriptc(SCRIPTNPC){
@@ -223,7 +236,7 @@ module.exports = function Memelord420(dispatch) {
 	}
 	
 	function spawnUser(SU){
-	dispatch.toClient('S_SPAWN_USER', 4, {
+	dispatch.toClient('S_SPAWN_USER', 5, {
 		serverId: pserver,
 		playerId: pid,
 		cid: ucid++,
@@ -241,7 +254,7 @@ module.exports = function Memelord420(dispatch) {
   type: 7,
   mount: SU[3],
   title: 0, //title
-  weapon: 1, // just to get models to display
+  weapon: 99216, // just to get models to display
   weaponEnchant: SU[9],
   hairAdornment: SU[4],
   mask: SU[5],
