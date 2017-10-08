@@ -31,6 +31,7 @@ Ever wanted to spawn an army of popori? Well now you can with this incredibly po
 * Added defaults to NPC and USER spawns
 * Added signs
 * Changed command names to be less dumb
+* Now fully uses command instead of slash
 * Added S_PLAY_SOUND
 * Swapped Huntingzone and Template ID fields to make more sense to my reptile brain
 * Made code somehow more garbage despite trying to do the opposite
