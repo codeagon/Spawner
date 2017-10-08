@@ -42,7 +42,7 @@ module.exports = function Spawner(dispatch) {
     });
 
     dispatch.hook('S_LOAD_TOPO', 1, event => {
-        zz = event.zone;
+        spawning = false;
     });
     dispatch.hook('S_SPAWN_USER', 5, event => {
         if (userdata) console.log('User Found ' + event.name, event.appface, event.apphair);
@@ -166,6 +166,7 @@ module.exports = function Spawner(dispatch) {
             unk2: 1
         });
     });
+
     /*command.add('ssound', (Namu) => { // Can't figure this out currently so it's commented
       dispatch.toClient('S_PLAY_SOUND_BYNAME', 1, {
         cid: pcid,
